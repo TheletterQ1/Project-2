@@ -6,10 +6,17 @@
 - [add your deployment link]()
 
 ## Project Description
-
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
-
+My plan is to create app mocking a website where you can browse a book collection
 ## API
+```const key = AIzaSyDw0D1_A6Pu6VwfYw3rCrYOTMU0W3qU_KE
+```const url ='https://www.googleapis.com/books/v1/volumes? q=flowers&orderBy=newest&key=${key}'
+const response = await fetch(url);
+const data = await response.json();
+this.setState(books: data.results[i])
+render(){
+	return (
+		<div>{this.data.results}</div>
+	)
 
 Use this section to include info about the API you have chosen and a code snippet of the data that it returns and is required for your project. 
 
