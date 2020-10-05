@@ -1,28 +1,47 @@
 # Project Overview
 
+## API
+
+host:realtor.p.rapidapi.com
+key:e3fc14b8f0mshd35be42ebb3bdfap1ca567jsn9d439daf9808
+
+test: https://realtor.p.rapidapi.com/properties/v2/list-for-sale?sort=relevance&city=New%20York%20City&limit=200&offset=0&state_code=NY&rapidapi-key=e3fc14b8f0mshd35be42ebb3bdfap1ca567jsn9d439daf9808
+
 ## Project Links
 
-- [add your github repo link]()
+- [https://git.generalassemb.ly/theletterq/project-2-react/commit/63224d07e946b783f6d30d38137d054f0ae372f2]()
 - [add your deployment link]()
 
 ## Project Description
-My plan is to create app mocking a website where you can browse a book collection
-## API
-```const key = AIzaSyDw0D1_A6Pu6VwfYw3rCrYOTMU0W3qU_KE
-```const url ='https://www.googleapis.com/books/v1/volumes? q=flowers&orderBy=newest&key=${key}'
-const response = await fetch(url);
-const data = await response.json();
-this.setState(books: data.results[i])
-render(){
-	return (
-		<div>{this.data.results}</div>
-	)
+
+My plan is to create an app for a real estate. Some of the features of the app will be the ability to search for homes in a specific location and rendering data from (possibly more than one) 3rd party api, and router links....
+
+ex:https://www.realtor.com/
+
 
 Use this section to include info about the API you have chosen and a code snippet of the data that it returns and is required for your project. 
 
-
+My API is of realtor .com and includes listings of homes for sale on the MLS
 ```
-{data: {} }
+"price": 
+"baths_half":
+"baths_full": 
+"baths": 
+"beds": 
+"building_size": {
+"size": 
+"units": 
+},
+"agents": [
+{
+"primary": 
+"advertiser_id": 
+"id": "
+"photo": {
+"href":
+},
+
+}
 ```
 
 
@@ -30,7 +49,7 @@ Use this section to include info about the API you have chosen and a code snippe
 
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
-- [add link to your wireframes]()
+- [https://res.cloudinary.com/du2kodoow/image/upload/v1601669538/20201002_125549_hkqzql.jpg]()
 - [add link to your react architecture]()
 
 
@@ -41,13 +60,20 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 #### MVP EXAMPLE
 - Find and use external api 
 - Render data on page 
-- Allow user to interact with the page
-
+- Creating filters for search
+- a handleClick function to highlight selected address
+- input fields to allow users to select location
+- 
 #### PostMVP EXAMPLE
 
-- Add localStorage or firebase for storage
+- Add extra filters 
 
 ## Components
+App- home w/ main functions
+List-rendering list of homes from api
+Listing- when clicked a single  home pops up
+About-about me
+Search-creating filters for searching homes
 ##### Writing out your components and its descriptions isn't a required part of the proposal but can be helpful.
 
 Based on the initial logic defined in the previous sections try and breakdown the logic further into stateless/stateful components. 
@@ -55,20 +81,25 @@ Based on the initial logic defined in the previous sections try and breakdown th
 | Component | Description | 
 | --- | :---: |  
 | App | This will make the initial data pull and include React Router| 
-| Header | This will render the header include the nav | 
-| Footer | This will render the header include the nav | 
+| List| This will render the listings  | 
+| Listing| This will render a specific listing once clicked|
+|About| This will be my about.me page| stateless
+|Search| Listings with filters available 
 
 
 Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Also, put a gif at the top of your Readme before you pitch, and you'll get a panda prize.
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Adding Form | H | 3hrs| 3.5hrs | 3.5hrs |
-| Working with API | H | 3hrs| 2.5hrs | 2.5hrs |
-| Total | H | 6hrs| 5hrs | 5hrs |
+| App| 1 | 3hrs|  | |
+| List | 3 | 1.5hrs|  |  |
+|Listing|2|1hr|
+|About|4|1hr|
+|Search|N|2.5
+| Total | H | 7.5hrs| 5hrs | 5hrs |
 
 ## Additional Libraries
- Use this section to list all supporting libraries and thier role in the project such as Axios, ReactStrap, D3, etc. 
+ SCSS, React
 
 ## Code Snippet
 

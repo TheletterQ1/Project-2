@@ -115,7 +115,7 @@ Use this section to include a brief code snippet of functionality that you are p
 
 The below code is how the leaderboard is populated. The shorter the name, the more dots are added between the name and score. The font size is set progressively smaller for each entry.
 
-```
+<!-- ```
 let fontSize = props.gameView ? 24 : 42
 
 scoreList = props.highScores.map((highScore, i) => {
@@ -136,5 +136,5 @@ scoreList = props.highScores.map((highScore, i) => {
 			{highScore.name} {dots} {highScore.score}
 		</li>
 	) 
-})
+}) -->
 ```
