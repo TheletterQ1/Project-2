@@ -50,7 +50,10 @@ My API is of realtor .com and includes listings of homes for sale on the MLS
 Upload images of wireframe to cloudinary and add the link here with a description of the specific wireframe. Also, define the the React components and the architectural design of your app.
 
 - [https://res.cloudinary.com/du2kodoow/image/upload/v1601669538/20201002_125549_hkqzql.jpg]()
-- [add link to your react architecture]()
+-[https://res.cloudinary.com/du2kodoow/image/upload/v1601669520/20201002_125750_ijqsrg.jpg]()
+
+
+- [https://res.cloudinary.com/du2kodoow/image/upload/v1601673973/20201002_142447_q1zmrt.jpg]()
 
 
 ### MVP/PostMVP - 5min
@@ -80,7 +83,7 @@ Based on the initial logic defined in the previous sections try and breakdown th
 
 | Component | Description | 
 | --- | :---: |  
-| App | This will make the initial data pull and include React Router| 
+| App | This will make the initial data pull and include React R| 
 | List| This will render the listings  | 
 | Listing| This will render a specific listing once clicked|
 |About| This will be my about.me page| stateless
