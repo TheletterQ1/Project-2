@@ -1,22 +1,32 @@
 import React from 'react'
-import {App, houses} from './App'
+ import './App.css'
 
 // function Houses(props) {
 
-const theHomes = (props) => {
-	
-		houses.properties.map(properties => (
-		props.thumbnail,
-		props.city,
-		props.line,
-		props.postal_code))
-		}
+const TheHomes = (props) => {
+
+	const saveHomes = props.houses.properties ? props.houses.properties.map(property => (
+		<><img 
+		style={{ border: '5px solid green'  }}
+		src={property.thumbnail}
+		alt={property.addess}
+		key={property.rank}
+		className='thumb'/>
+		<div class='details'>{property.address.line}</div>
+		
+		<div class='details'>{property.address.city}</div>		
+		<div class='details'>{property.address.postal_code}</div>		
+		<div class='details'>{property.address.state}</div> </>
+	)): <h1>Loading...</h1>
 
 
 	return (
-	
-		<div>{theHomes} </div>
-		  
+		<> 
+		
+	{saveHomes}
+		</>
+  
 		)
+	}
 
-export default theHomes 
+export default TheHomes 
