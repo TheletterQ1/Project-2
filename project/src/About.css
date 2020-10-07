@@ -1,0 +1,13 @@
+h2 {
+    font-size: x-large;
+  }
+  body{
+    background-color: lightgray
+  }
+  nav{
+    display: inline;
+  }
+  
+  #numbers {
+    width: 35%;
+  }
