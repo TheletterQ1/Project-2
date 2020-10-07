@@ -10,13 +10,13 @@ const TheHomes = (props) => {
 		style={{ border: '5px solid green'  }}
 		src={property.thumbnail}
 		alt={property.addess}
-		key={property.rank}
+		key={property.properties.property_id}
 		className='thumb'/>
-		<div class='details'>{property.address.line}</div>
+		<div className='details'>{property.address.line}</div>
 		
-		<div class='details'>{property.address.city}</div>		
-		<div class='details'>{property.address.postal_code}</div>		
-		<div class='details'>{property.address.state}</div> </>
+		<div className='details'>{property.address.city}</div>		
+		<div className='details'>{property.address.postal_code}</div>		
+		<div className='details'>{property.address.state}</div> </>
 	)): <h1>Loading...</h1>
 
 
