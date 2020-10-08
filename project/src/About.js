@@ -1,5 +1,7 @@
 import React from 'react'
 import App from './App'
+import Form from './Form'
+import theNav from './Nav'
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,19 +10,12 @@ import {
   } from 'react-router-dom';
 // import {navBar} from './App'
 
-const aboutMe = () => {
+ function aboutMe() {
+ 
 
     return (<>
-         <nav style={{display: "flex", justifyContent: 'center', justifyContent: 'space-between'}}>
-        <Link to='/About'>
-          <h4>About</h4>
-        </Link>
-        <Link to='/Search'>
-          <h4>Search</h4>
-        </Link>
-         <i class="fa fa-bars" aria-hidden="true">☰</i>
-    
-        </nav>
+     <div Link ={Link} className='nav' handleClick = {App.handleClickNav} theNav={theNav}>{theNav}</div>
+        <h1 class='welcome'>Welcome to Inner Circle Real Estate</h1>
         <h1>About This App</h1>
         <h3>Dedicated to bringing you quality properties at the touch of a button</h3>
         <p>
@@ -34,15 +29,15 @@ const aboutMe = () => {
         </p>
         <main>
         <Switch>
-          <Route exact path ='/'>
+          <Route  path ='/App'>
             <App />
           </Route>
-          <Route exact path ='/About'>
+          <Route path ='/About'>
             <aboutMe />
           </Route>
-          <Route exact path ='/Search'>
-            {/* <Searches /> */}
-          </Route>
+          {/* <Route exact path ='/Search'>
+            <Searches />
+          </Route> */}
         </Switch>
         </main>
     </>)
