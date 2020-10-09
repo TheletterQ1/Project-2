@@ -3,7 +3,7 @@ import App from './App'
 import './App.css'
 
 const TheHomes = (props) => {
-	
+	 
 	const saveHomes = props.houses.properties ? props.houses.properties.map(property => (
 			<>	<div key={property.property_id}><img 
 					style={{ border: '5px dark blue'  }}

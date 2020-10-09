@@ -2,26 +2,21 @@ import React from 'react'
 import './App.css'
 
 
-const showSearch = (props) => {
+function showSearch(props) {
             
-      
     const showList = props.capturedData.properties ? props.capturedData.properties.map(property => (
-  <>  
+ <>   <div key ={property.properties.property_id}>
       <img 
       style={{ border: '5px solid skyblue'  }}
       src={property.thumbnail}
       alt={property.addess}
       key={property.properties.property_id}
       className='thumb'/>
-      <div className='details' key ={property.properties.property_id}>{property.address.line}
+      <div className='details'>{property.address.line}
       {property.address.city}
       {property.address.postal_code}
       {property.address.postal_code}</div>
-      
-      <div className='details'>{property.address.city}</div>		
-      <div className='details'>{property.address.postal_code}</div>		
-      <div className='details'>{property.address.postal_code}</div> 
-  </>
+     </div></>
      )): <h1>Loading...</h1>
 
 	return (

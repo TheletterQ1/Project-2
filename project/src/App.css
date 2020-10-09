@@ -79,7 +79,7 @@ input #number {
 }
 #thumbnails {
   /* flex: 1; */
-  width: 190px;
+  width: 140px;
   position: relative;
   display: grid;
   align-content: space-around;
@@ -95,8 +95,13 @@ input #number {
   .Links{
     display: initial;
   }
+  #hamburger {
+    display: none;
+  }
+
   .form{
     display: flex;
+    text-align: center;
   }
   
 }
