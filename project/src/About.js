@@ -1,9 +1,10 @@
 import React from 'react'
 import App from './App'
 import Form from './Form'
+import Searches from './Search'
 import theNav from './Nav'
 import {
-    BrowserRouter as Router,
+   
     Switch,
     Route,
     Link
@@ -28,18 +29,18 @@ import {
             We'll help you acquire the perfect match for you and your needs. 
         </p>
         <main>
-        <Switch>
-          <Route  path ='/App'>
-            <App />
-          </Route>
-          <Route path ='/About'>
-            <aboutMe />
-          </Route>
-          {/* <Route exact path ='/Search'>
-            <Searches />
-          </Route> */}
-        </Switch>
-        </main>
+          <Switch>
+            <Route  path ='/App'>
+              <App />
+            </Route>
+            <Route path ='/About'>
+             <aboutMe />
+            </Route>
+            <Route exact path ='/Search'>
+              <Searches />
+            </Route> 
+          </Switch>
+          </main>
     </>)
 }
 export default aboutMe

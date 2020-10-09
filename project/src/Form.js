@@ -1,83 +1,91 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext,useEffect} from 'react';
 import { BrowserRouter as Router,Link, Switch, Route } from 'react-router-dom';
 import App from './App';
 import aboutMe from './About'
-// import App from './App'
-// // import theNav from './Nav'
-// // import Searches from './Search'
-
-// //props or state?????
-
-     function Form() {
+import Searches from './Search'
+import showSearch from './List';
 
 
-        const submittedContext = React.createContext;
+//props or state?????
+// export const submittedContext =  createContext();    
+
+export default function Form(props) {
+
+
+    // const submittedContext =  createContext({formData});    
+
+    
+      const [userCity, setUserCity] = useState('');
+      const [userState, setUserState] = useState('');
+      const [userResults, setUserResults] = useState('');
+      const [captureData,setCaptureData] = useState({})
+      const [newURL,setNewUrl]= useState('')
       
-    const [formData, setFormData] = useState ({
-        city: '',
-    
-        state: '',
-    
-        results: ''
-        }) 
-
-
-            //to handle submit
-        const formSubmit = (event) => {
-        console.log('handleSubmit clicked')
-        if(event) event.preventDefault()      
-        const userCity = formData.city
-        const userState = formData.state
-        const userResults = formData.results
-        }
-         //to handle input changes
-
-        const handleChange = (event) => {
-        console.log('handleChange-',event.target.value)
-        setFormData({ [event.target.name] : event.target.value});
-        };
-
-// //     const [searched, setSearched] = useState({})
-// //     const handleSubmitURL = async({...FormData}) => {
-// //     event.preventDefault();
-// //     //come back and store each section 
-// //     let newURL = `https://realtor.p.rapidapi.com/properties/v2/list-for-sale?sort=relevance
-// //     &city=${FormData.city}&limit=${FormData.results}&offset=0
-// //     &state_code=${FormData.state}
-// //     &rapidapi-key=e3fc14b8f0mshd35be42ebb3bdfap1ca567jsn9d439daf9808`;
-// //     // making new fetch
-// //      function userSearch(){
-// //      const makeApiCall = async () => {
-// //      const res = await fetch(newURL)
-// //      const newData = await res.json()
-// //      console.log('searches-newData-',newData)
-// //      setSearched(newData);
-// //      }
-// //     }    console.log(searched)
-// //      };
-    return(
-          <>
-//     {/*    <header>
-//        <div className='nav' Route ={Route} Link={Link} handleClick = {handleClickNav} theNav={theNav}>{theNav}</div>
-//        </header> */}
         
-//         <form 
-         onSubmit={formSubmit} 
+
+
+//to handle submit
+    const handleSubmit = (event) =>{
+        const newURL = `https://realtor.p.rapidapi.com/properties/v2/list-for-sale?sort=relevance&city=${userCity}&limit=${userResults}&offset=0&state_code=${userState}&rapidapi-key=e3fc14b8f0mshd35be42ebb3bdfap1ca567jsn9d439daf9808`;
+        event.preventDefault()
+        console.log(userCity,userResults, userState)
+    }    
+        function CaptureData(){
+        setNewUrl(newURL)
+        fetch(newURL)
+        .then((response) => response.json())
+        .then((data) =>{
+          console.log(data)
+          setCaptureData(data);
+            
+        //   setCaptureData(data);
+          //props later
+         })} 
+
+        useEffect(() => {
+         CaptureData()
+ 
+      },[handleSubmit])
+          
+        
+    
+   
+ //to handle input changes
+
+        const handleCityChange = (event) => {
+            console.log('handleChange-',event.target.value)
+            setUserCity(event.target.value)
+        };
+        const handleStateChange = (event) => {
+            console.log('handleChange-',event.target.value)
+            setUserState(event.target.value)
+        };
+        const handleResultsChange = (event) => {
+            console.log('handleChange-',event.target.value)
+            setUserResults(event.target.value)
+        };
+       
+        return(
+          <>
+
+        
+         <form 
+       
         className ='form' 
-        style={{display: "flex", justifyContent: "space-between"}}>
+        style={{display: "column",justifyContent: "space-between"}}>
         <input 
-        onChange={handleChange} 
+        onChange={handleCityChange} 
         type='text' 
-        name='cities'       
-        value={formData.city} 
+        name='city'       
+        value={userCity} 
         placeholder='City - ex: New York City'/>
         <br/>
         <br/>
         <input 
         type='text' 
-        name='states' 
-        onChange={handleChange} 
-        value={formData.state} 
+        name='state' 
+        onChange={handleStateChange} 
+        value={userState} 
         placeholder=' State - ex: NY'/>
         <br/>
         <br/>
@@ -85,49 +93,25 @@ import aboutMe from './About'
         type='number'
         name='results' 
         id='results' 
-        onChange={handleChange} 
-        value={formData.results} 
+        onChange={handleResultsChange} 
+        value={userResults} 
         placeholder='how many properties?'/>
         
-        <input onSubmit={formSubmit} type="submit" value='Search'/> 
+        <input onClick={handleSubmit} type="submit" value='Search'/> 
         </form> 
-       <Router>
-        <div>       
-        {/* <Link class='Links' to='/About'>
-          <h4>About</h4>
-        </Link>
-        <Link class='Links' to='/Search'>
-          <h4>Search</h4>
-        </Link>
-        <Link class='Links' to='/App'>
-          <h4>Home</h4>
-        </Link> */}
+
+     <main></main>
+     <footer> <div id='search-wrapper'>
+          <div id = 'search-thumbnails'>
+            <showSearch
+            captureData={captureData}
+            /> 
+          </div>
+          </div>
+          </footer>
        
-         
-        <main>
-        <Switch>
-           <Route exact path ='/App'>
-             <App component {...App}/>
-            </Route>
-           <Route exact path ='/About'>
-             <aboutMe
-             aboutMe = {aboutMe} />
-            </Route>
-            </Switch>
-            </main>
-            </div>
-            </Router>
-          {/*  <userContext.Provider>
-           <Route exact path ='/Search'>
-             <Searches /> 
-            </Route>
-         </userContext.Provider>
-         </Switch> 
-        </main>
-         </div></Router>  */}
-        
        </>
       )
      }
- 
-export default Form
+    
+

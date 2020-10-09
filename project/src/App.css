@@ -95,6 +95,9 @@ input #number {
   .Links{
     display: initial;
   }
+  .form{
+    display: flex;
+  }
   
 }
 
